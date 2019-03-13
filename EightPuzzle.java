@@ -57,8 +57,29 @@ public class EightPuzzle
     ExploredList explored = new ExploredList();
     ArrayList<PuzzleState> toReturn = new ArrayList<PuzzleState>();
 
-    //frontier
-    return new ArrayList<PuzzleState>();
+    frontier.add(new ExploredNode(initial_state, null));
+
+    while(explored.isEmpty() || explored.getLast().getManhattanDistance() != 0)
+    {
+        explored.add(frontier.poll());
+        PuzzleState[] possibleStates = explored.getLast().getState().possibleMoves();
+        int counter = 0;
+        while(counter != 4 && possibleStates[counter] != null)
+        {
+          PuzzleState possState = possibleStates[counter];
+          ExploredNode newNode = new ExploredNode(possState, explored.getLast());
+          frontier.add(newNode);
+          counter++;
+        }
+
+    }
+    ExploredNode check = explored.getLast();
+    while(check != null)
+    {
+      toReturn.add(check.getState());
+      check = check.getPrev();
+    }
+    return toReturn;
   }
 
 }
