@@ -2,6 +2,7 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.Comparator;
+import java.util.Collections;
 
 /*
 * The Main Class of the Eight Puzzle Solver using
@@ -32,6 +33,8 @@ public class EightPuzzle
       {8,3,1}
     };
     initial_state = new PuzzleState(initial);
+
+    System.out.println("\n\nCalculating, please wait...\n");
 
     ArrayList<PuzzleState> solution = runAStar(initial_state);
     for(PuzzleState state : solution)
@@ -79,6 +82,8 @@ public class EightPuzzle
       toReturn.add(check.getState());
       check = check.getPrev();
     }
+    Collections.reverse(toReturn);
+    System.out.println("\nOptimal Solution\nTotal Path Cost = " + explored.getLast().getRunningSum() + "\n\n"); 
     return toReturn;
   }
 
