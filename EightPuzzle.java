@@ -42,10 +42,10 @@ public class EightPuzzle
 
     //Testing
     int[] located = initial_state.locateEmpty();
-    System.out.println(initial_state);
-    initial_state.moveLeft(located[0],located[1]);
+    System.out.println(initial_state.ManDistance());
+    goal_state.moveRight(0,0);
     //located = initial_state.locateEmpty();
-    System.out.println(initial_state);
+    System.out.println(goal_state.ManDistance());
 
 
   }

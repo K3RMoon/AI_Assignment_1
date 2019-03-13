@@ -1,4 +1,5 @@
-
+import java.lang.Math;
+import java.util.*;
 /**
 * An object class to represent the state of the puzzle and control it
 * For the sake of this project, we are representing the 'empty' tile with
@@ -14,6 +15,9 @@ public class PuzzleState
   */
   private int[][] arr;
 
+
+  private HashMap<Integer,Integer[]> pStates;
+
   /*
   * Constructor of PuzzleState Object
   * param: arr - a two dimensional array representing the state
@@ -21,6 +25,16 @@ public class PuzzleState
   public PuzzleState(int[][] arr)
   {
     this.arr = arr;
+    pStates = new HashMap<Integer,Integer[]>();
+    pStates.put(0,new Integer[]{0,0});
+    pStates.put(1,new Integer[]{0,1});
+    pStates.put(2,new Integer[]{0,2});
+    pStates.put(3,new Integer[]{1,0});
+    pStates.put(4,new Integer[]{1,1});
+    pStates.put(5,new Integer[]{1,2});
+    pStates.put(6,new Integer[]{2,0});
+    pStates.put(7,new Integer[]{2,1});
+    pStates.put(8,new Integer[]{2,2});
   }
 
   /*
@@ -134,5 +148,24 @@ public class PuzzleState
     String toReturn = "\n------------\n| "+this.arr[0][0]+" | "+this.arr[0][1]+" | "+this.arr[0][2]+" |\n------------\n| "+this.arr[1][0]+" | "+this.arr[1][1]+" | "+this.arr[1][2]+ " |\n------------\n| " +this.arr[2][0]+" | "+this.arr[2][1]+" | "+this.arr[2][2]+" |\n------------\n";
     return toReturn;
   }
+
+  public int ManDistance()
+  {
+    int mdReturn = 0;
+    for(int i = 0; i < 3; i++)
+    {
+      for(int j = 0; j < 3; j++)
+      {
+        int actualPos = arr[i][j];
+        if(actualPos != 0)
+        {
+          Integer[] actualCoor = pStates.get(actualPos);
+          mdReturn += Math.abs(i-actualCoor[0]) + Math.abs(j-actualCoor[1]);
+        }
+      }
+    }
+    return mdReturn;
+  }
+
 
 }
