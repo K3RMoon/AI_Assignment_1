@@ -7,9 +7,9 @@
 public class ExploredNode
 {
   private PuzzleState state;
-  private PuzzleState previousState;
+  private ExploredNode previousState;
 
-  public ExploredNode(PuzzleState state, PuzzleState previousState)
+  public ExploredNode(PuzzleState state, ExploredNode previousState)
   {
     this.state = state;
     this.previousState = previousState;
@@ -20,7 +20,7 @@ public class ExploredNode
     return state;
   }
 
-  public PuzzleState getPrev()
+  public ExploredNode getPrev()
   {
     return previousState;
   }
