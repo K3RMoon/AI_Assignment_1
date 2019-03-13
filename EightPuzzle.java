@@ -19,6 +19,7 @@ public class EightPuzzle
                                           //identifier for it
     HashMap<Integer,Integer> MD; //A map containing the Manhattan Distance of
                                 //every state
+    ExploredList explored = new ExploredList();
 
     //Setting Up Initial State
     int[][] initial = new int[][]
