@@ -169,6 +169,7 @@ public class PuzzleState
   public String toString()
   {
     String toReturn = "\n------------\n| "+this.arr[0][0]+" | "+this.arr[0][1]+" | "+this.arr[0][2]+" |\n------------\n| "+this.arr[1][0]+" | "+this.arr[1][1]+" | "+this.arr[1][2]+ " |\n------------\n| " +this.arr[2][0]+" | "+this.arr[2][1]+" | "+this.arr[2][2]+" |\n------------\n";
+    toReturn = toReturn.replace('0',' ');
     return toReturn;
   }
 
