@@ -125,6 +125,29 @@ public class PuzzleState
     this.arr[i-1][j] = 0;
   }
 
+  public boolean canMoveRight (int j){
+  		if((j+1)==3)
+  		return false;
+  	return true;
+  }
+
+  public boolean canMoveLeft (int j){
+  		if((j-1)==-1)
+  		return false;
+  	return true;
+  }
+
+  public boolean canMoveDown(int i){
+  		if((i+1)==3)
+  		return false;
+  	return true;
+  }
+  public boolean canMoveUp (int i){
+  		if((i-1)==-1)
+  		return false;
+  	return true;
+  }
+
   /*
   * Moves the empty tile down, switching its position with the tile
   * right below it (if any)
@@ -165,6 +188,60 @@ public class PuzzleState
       }
     }
     return mdReturn;
+  }
+
+  public PuzzleState clone()
+  {
+    int[][] newArr = new int[3][3];
+    for(int i = 0; i < 3; i++)
+    {
+      for(int j = 0; j < 3; j++)
+      {
+        newArr[i][j] = arr[i][j];
+      }
+    }
+
+    return new PuzzleState(newArr);
+  }
+
+  public PuzzleState[] possibleMoves()
+  {
+    PuzzleState[] nodes = new PuzzleState[4];
+    int counter = 0;
+    int[] empty = locateEmpty();
+    if(canMoveUp(empty[0]))
+    {
+      PuzzleState pU = this.clone();
+      pU.moveUp(empty[0],empty[1]);
+      nodes[counter] = pU;
+      counter++;
+    }
+
+    if(canMoveDown(empty[0]))
+    {
+      PuzzleState pD = this.clone();
+      pD.moveDown(empty[0],empty[1]);
+      nodes[counter] = pD;
+      counter++;
+    }
+
+    if(canMoveLeft(empty[1]))
+    {
+      PuzzleState pL = this.clone();
+      pL.moveLeft(empty[0],empty[1]);
+      nodes[counter] = pL;
+      counter++;
+    }
+
+    if(canMoveRight(empty[1]))
+    {
+      PuzzleState pR = this.clone();
+      pR.moveRight(empty[0],empty[1]);
+      nodes[counter] = pR;
+      counter++;
+    }
+
+    return nodes;
   }
 
 

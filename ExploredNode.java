@@ -8,11 +8,20 @@ public class ExploredNode
 {
   private PuzzleState state;
   private ExploredNode previousState;
+  private int runningSum;
 
   public ExploredNode(PuzzleState state, ExploredNode previousState)
   {
     this.state = state;
     this.previousState = previousState;
+    if(previousState == null)
+    {
+      this.runningSum = 0;
+    }
+    else
+    {
+      this.runningSum = previousState.runningSum + 1;
+    }
   }
 
   public PuzzleState getState()
@@ -23,6 +32,16 @@ public class ExploredNode
   public ExploredNode getPrev()
   {
     return previousState;
+  }
+
+  public int getRunningSum()
+  {
+    return runningSum;
+  }
+
+  public int getManhattanDistance()
+  {
+    return state.ManDistance();
   }
 
 }

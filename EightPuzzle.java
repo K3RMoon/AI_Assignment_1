@@ -1,4 +1,7 @@
 import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+import java.util.Comparator;
 
 /*
 * The Main Class of the Eight Puzzle Solver using
@@ -28,26 +31,34 @@ public class EightPuzzle
       {5,0,6},
       {8,3,1}
     };
+    initial_state = new PuzzleState(initial);
 
-    //Setting Up Goal State
-    int[][] goal = new int[][]
+    ArrayList<PuzzleState> solution = runAStar(initial_state);
+    for(PuzzleState state : solution)
     {
-      {0,1,2},
-      {3,4,5},
-      {6,7,8}
-    };
-
-    initial_state = new PuzzleState(initial); //Creating the initial state Object
-    goal_state = new PuzzleState(goal); //Creating the goal state object
-
-    //Testing
-    int[] located = initial_state.locateEmpty();
-    System.out.println(initial_state.ManDistance());
-    goal_state.moveRight(0,0);
-    //located = initial_state.locateEmpty();
-    System.out.println(goal_state.ManDistance());
+      System.out.println(state);
+    }
 
 
+  }
+
+  public static ArrayList<PuzzleState> runAStar(PuzzleState initial_state)
+  {
+    Comparator<ExploredNode> comparator = new NodeComparator();
+    PriorityQueue<ExploredNode> frontier = new PriorityQueue<>(10, comparator);
+    //the number 10 means nothing, were just obligated to have an initial capacity,
+           //but it grows as needed
+           /**
+            * Method names according to the JAVA API:
+            * add(element)
+            * peek() --> equivalent to min()
+            * poll() --> equivalent to poll()
+            */
+    ExploredList explored = new ExploredList();
+    ArrayList<PuzzleState> toReturn = new ArrayList<PuzzleState>();
+
+    //frontier
+    return new ArrayList<PuzzleState>();
   }
 
 }
