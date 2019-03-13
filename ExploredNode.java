@@ -15,12 +15,12 @@ public class ExploredNode
     this.previousState = previousState;
   }
 
-  public getState()
+  public PuzzleState getState()
   {
     return state;
   }
 
-  public getPrev()
+  public PuzzleState getPrev()
   {
     return previousState;
   }

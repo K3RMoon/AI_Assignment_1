@@ -9,7 +9,7 @@ public class ExploredList
     size = 0;
   }
 
-  public add(ExploredNode node)
+  public void add(ExploredNode node)
   {
     lastAdded = node;
     size++;
