@@ -7,7 +7,7 @@ To change the initial state of the puzzle:
   3. Edit the 'initial' two-dimensional array that represents the state of the puzzle.
     - Use '0' to represent the empty tile.
   4. The pre-filled state in the code is representing the state:
-    -------------
+     -------------
     | 7 | 2 | 4 |
     -------------
     | 5 |   | 6 |
@@ -23,7 +23,7 @@ To run the code with the initial state set you must have Java installed, and sho
     javac EightPuzzle.java
     java EightPuzzle
   4. The code may take a while, but it should print the optimal path for solving the puzzle and should show a final state:
-    -------------
+     -------------
     |   | 1 | 2 |
     -------------
     | 3 | 4 | 5 |
