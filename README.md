@@ -1,5 +1,9 @@
 # AI_Assignment_1
 Solving 8-puzzle using A* algorithm.
+Authors: 
+- Kelvin R. Roche Rivera (802-14-6700)
+- Luis R. Santiago Estrada (802-10-7260)
+- Herbert Perez Aviles (802-14-5596)
 
 To change the initial state of the puzzle:
   1. Go to EightPuzzle.java file
