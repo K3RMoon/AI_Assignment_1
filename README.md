@@ -6,7 +6,7 @@ To change the initial state of the puzzle:
   2. Go to main method.
   3. Edit the 'initial' two-dimensional array that represents the state of the puzzle.
     - Use '0' to represent the empty tile.
-    - The pre-filled state in the code is representing the state:
+The pre-filled state in the code is representing the state:
     -------------
     | 7 | 2 | 4 |
     -------------
